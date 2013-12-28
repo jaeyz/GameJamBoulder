@@ -7,6 +7,11 @@ public class AttachObject : MonoBehaviour {
 		if (col.tag == "Boulder") {
 			transform.parent = col.transform;
 			collider.isTrigger = false;
+			//rigidbody.constraints = RigidbodyConstraints.FreezeAll;
+		}
+		else if (col.tag == "Obs") {
+			transform.parent = col.transform;
+			collider.isTrigger = false;
 		}
 	}
 
