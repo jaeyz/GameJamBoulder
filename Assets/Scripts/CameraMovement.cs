@@ -8,7 +8,7 @@ public class CameraMovement : MonoBehaviour {
 	private float smooth = 5f;
 
 	void Update () {
-		transform.position = new Vector3 (0,transform.position.y,
+		transform.position = new Vector3 (0,(target.position.y + 5),
 		           (target.position.z - 5));
 	}
 }
