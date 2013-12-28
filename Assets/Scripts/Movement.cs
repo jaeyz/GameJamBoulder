@@ -11,6 +11,9 @@ public class Movement : MonoBehaviour {
 
 	private CharacterController controller;
 
+	[SerializeField]
+	private UILabel logs;
+
 	public float Speed {
 		get {
 			return speed;
@@ -34,11 +37,12 @@ public class Movement : MonoBehaviour {
 	void Update() {
 
 #if UNITY_STANDALONE || UNITY_EDITOR
-		moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, 1);
+		moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
 #elif UNITY_ANDROID || UNITY_IPHONE && !UNITY_EDITOR
-		moveDirection = new Vector3(Input.gyro.userAcceleration.x, 0, 1);
+		moveDirection = new Vector3(Input.acceleration.x, 0, 1);
 #endif
 		moveDirection = transform.TransformDirection(moveDirection);
+
 		moveDirection *= speed;
 
 			
@@ -47,7 +51,7 @@ public class Movement : MonoBehaviour {
 		}
 
 		// Apply gravity
-		//moveDirection.y -= gravity * Time.deltaTime;
+	//	moveDirection.y -= gravity * Time.deltaTime;
 		
 		// Move the controller
 		controller.Move (moveDirection * Time.deltaTime);
