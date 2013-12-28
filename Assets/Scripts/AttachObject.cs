@@ -4,8 +4,10 @@ using System.Collections;
 public class AttachObject : MonoBehaviour {
 
 	void OnTriggerEnter(Collider col) {
-		if (col.tag == "Boulder")
+		if (col.tag == "Boulder") {
 			transform.parent = col.transform;
+			collider.isTrigger = false;
+		}
 	}
 
 
