@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BoulderBehaviour : MonoBehaviour {
 	
-	private float boulderSpeed = 5f;
+	public float boulderSpeed = 5f;
 	private float boulderTurnSpeed = 20f;
 
 	public float Speed {
