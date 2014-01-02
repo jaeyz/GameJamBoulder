@@ -4,10 +4,10 @@ using System.Collections.Generic;
 
 public class BoulderBehaviour : MonoBehaviour {
 	
-	public float boulderSpeed = 5f;
+	public float boulderSpeed = 3f;
 	private float boulderTurnSpeed = 20f;
 	private static BoulderBehaviour boulderBehaviour;
-
+	
 	public static BoulderBehaviour Instance {
 		get {
 			if (boulderBehaviour == null)
@@ -28,8 +28,8 @@ public class BoulderBehaviour : MonoBehaviour {
 		if (transform.localScale.x < 3f)
 			transform.localScale += new Vector3 (0.2f, 0.2f, 0.2f);
 		                            
-		boulderSpeed = Mathf.Clamp(boulderSpeed + 0.5f,
-		                           5f, 10f);
+		//boulderSpeed = Mathf.Clamp(boulderSpeed + 0.5f,
+		             //              5f, 10f);
 	}
 
 	public void DecreaseBoulderSize() {
@@ -54,7 +54,7 @@ public class BoulderBehaviour : MonoBehaviour {
 	}
 	
 	void FixedUpdate () {
-		rigidbody.AddForce (Vector3.forward * boulderSpeed, ForceMode.Force);
+		rigidbody.AddForce (Vector3.forward * 5f);
 	
 #if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBPLAYER
 		if (Input.GetKey(KeyCode.A))
@@ -65,4 +65,5 @@ public class BoulderBehaviour : MonoBehaviour {
 		rigidbody.AddForce (Input.acceleration.x * (boulderTurnSpeed * Time.deltaTime), ForceMode.VelocityChange);
 #endif
 	}
+	
 }

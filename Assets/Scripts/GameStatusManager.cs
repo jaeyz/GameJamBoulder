@@ -15,6 +15,8 @@ public class GameStatusManager : MonoBehaviour {
 
 	public void GameOver() {
 		Debug.Log("Game Over");
+		PlatformBehaviour.Instance.isShuttingDown = true;
+		Application.LoadLevel ("Score");
 	}
 
 }

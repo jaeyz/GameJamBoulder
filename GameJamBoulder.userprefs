@@ -1,10 +1,15 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Timer.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlatformBehaviour.cs">
     <Files>
-      <File FileName="Assets\Scripts\BoulderBehaviour.cs" Line="38" Column="1" />
-      <File FileName="Assets\Scripts\GameStatusManager.cs" Line="10" Column="33" />
-      <File FileName="Assets\Scripts\Timer.cs" Line="24" Column="23" />
+      <File FileName="Assets\Scripts\AttachObject.cs" Line="6" Column="45" />
+      <File FileName="Assets\Scripts\Powerups\Hazard.cs" Line="7" Column="1" />
+      <File FileName="Assets\Scripts\BoulderBehaviour.cs" Line="69" Column="1" />
+      <File FileName="Assets\Scripts\Timer.cs" Line="6" Column="14" />
+      <File FileName="Assets\Scripts\CameraMovement.cs" Line="12" Column="36" />
+      <File FileName="Assets\Test\Obstacle.cs" Line="7" Column="2" />
+      <File FileName="Assets\Scripts\PlatformBehaviour.cs" Line="63" Column="4" />
+      <File FileName="Assets\Scripts\MainMenu\ButtonStart.cs" Line="18" Column="31" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
