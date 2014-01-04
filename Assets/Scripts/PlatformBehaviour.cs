@@ -74,7 +74,7 @@ public class PlatformBehaviour : MonoBehaviour {
 	}
 	
 	void OnBecameInvisible() {
-		transform.root.position += new Vector3 (0, 0, 80);
+		transform.root.position += new Vector3 (0, 0, 140);
 	}
 
 	void OnBecameVisible() {
