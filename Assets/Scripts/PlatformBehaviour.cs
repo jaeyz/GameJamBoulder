@@ -41,9 +41,10 @@ public class PlatformBehaviour : MonoBehaviour {
 	}
 	
 	void RepositionObstacles() {
-		if (cubes.Count < 2) {
-			for(int x = cubes.Count; x < 2; x++) {
-				GameObject g = (GameObject) Instantiate(Resources.Load("Mushrooms"));
+		if (cubes.Count < 1) {
+			for(int x = cubes.Count; x < 1; x++) {
+				int randomCode = Random.Range(0,1);
+				GameObject g = (GameObject) Instantiate(Resources.Load(GetObstacle(randomCode)));
 				cubes.Add(g);
 				AttachObject a = g.GetComponent<AttachObject>();
 				a.OnCollided += RemoveObstacleFromList;
@@ -57,14 +58,23 @@ public class PlatformBehaviour : MonoBehaviour {
 
 			g.transform.position = new Vector3(posX, 1.2f, posZ);
 		}
+
+		if (Random.value < 0.2f) {
+			float posX = Random.Range(transform.renderer.bounds.min.x + 1, transform.renderer.bounds.max.x - 1);
+			float posZ = Random.Range(transform.renderer.bounds.min.z + 1, transform.renderer.bounds.max.z - 1);
+		
+			//GameObject g = (GameObject) Instantiate(Resources.Load("TimerPowerup"));
+		//	g.transform.position = new Vector3(posX, 1.2f, posZ);
+		}
 	}
 	
 	void SpawnObstacles() {
 		takenPoints.Clear ();
-		for (int x = 0; x < 2; x++) {
+		for (int x = 0; x < 1; x++) {
 			float posX = Random.Range(transform.renderer.bounds.min.x, transform.renderer.bounds.max.x);
 			float posY = Random.Range(transform.renderer.bounds.min.z, transform.renderer.bounds.max.z);
-			GameObject g = (GameObject) Instantiate(Resources.Load("Mushrooms"));
+			int randomCode = Random.Range(0,1);
+			GameObject g = (GameObject) Instantiate(Resources.Load(GetObstacle(randomCode)));
 			AttachObject a = g.GetComponent<AttachObject>();
 			a.OnCollided += RemoveObstacleFromList;
 			attachObjects.Add(a);
@@ -79,6 +89,19 @@ public class PlatformBehaviour : MonoBehaviour {
 
 	void OnBecameVisible() {
 		RepositionObstacles ();
+	}
+
+	string GetObstacle(int code) {
+		string obstacleName = "";
+		switch (code) {
+		case 0:
+			obstacleName = "BlockStripe";
+			break;
+		case 1:
+			obstacleName = "";
+			break;
+		}
+		return obstacleName;
 	}
 	
 }

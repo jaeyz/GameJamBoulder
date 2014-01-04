@@ -16,14 +16,17 @@ public class AttachObject : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider col) {
+		int bonus = 0;
 		if (col.tag == "Boulder") {
-			//transform.parent = col.transform;
+			transform.parent = col.transform;
 			collider.isTrigger = false;
-			FixedJoint f = gameObject.AddComponent<FixedJoint>();
-			f.connectedBody = col.rigidbody;
+			//FixedJoint f = gameObject.AddComponent<FixedJoint>();
+			//f.connectedBody = col.rigidbody;
+			bonus = 20;
 			//rigidbody.constraints = RigidbodyConstraints.FreezeAll;
 		}
 		else if (col.tag == "Obs") {
+			bonus = 20;
 			transform.parent = col.transform;
 			collider.isTrigger = false;
 		}
@@ -31,6 +34,7 @@ public class AttachObject : MonoBehaviour {
 			Debug.Log(string.Format("[OnCollided] {0}", gameObject));
 			OnCollided (gameObject);
 		}
+		Timer.Instance.AddBonusScore(bonus);
 	}
 
 }

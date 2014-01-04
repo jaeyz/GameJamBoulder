@@ -1,13 +1,20 @@
 fileFormatVersion: 2
-guid: d82bd9cbc761c474f9bf417c123975fa
+guid: 8c62df4fe1b7d324fa73092a4c153e10
 ModelImporter:
   serializedVersion: 15
   fileIDToRecycleName:
     100000: //RootNode
+    100002: fullCellMesh
+    100004: glowPlane
     400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: start_wood
+    400002: fullCellMesh
+    400004: glowPlane
+    2300000: fullCellMesh
+    2300002: glowPlane
+    3300000: fullCellMesh
+    3300002: glowPlane
+    4300000: fullCellMesh
+    4300002: glowPlane
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -59,5 +66,5 @@ ModelImporter:
     feetSpacing: 0
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   userData: 

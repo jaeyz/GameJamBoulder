@@ -4,8 +4,8 @@ using System.Collections.Generic;
 
 public class BoulderBehaviour : MonoBehaviour {
 	
-	public float boulderSpeed = 3f;
-	private float boulderTurnSpeed = 20f;
+	public float boulderSpeed = 5f;
+	private float boulderTurnSpeed = 30f;
 	private static BoulderBehaviour boulderBehaviour;
 	
 	public static BoulderBehaviour Instance {
@@ -28,8 +28,8 @@ public class BoulderBehaviour : MonoBehaviour {
 		if (transform.localScale.x < 3f)
 			transform.localScale += new Vector3 (0.2f, 0.2f, 0.2f);
 		                            
-		//boulderSpeed = Mathf.Clamp(boulderSpeed + 0.5f,
-		             //              5f, 10f);
+		boulderSpeed = Mathf.Clamp(boulderSpeed + 0.5f,
+		                           5f, 10f);
 	}
 
 	public void DecreaseBoulderSize() {
@@ -62,7 +62,7 @@ public class BoulderBehaviour : MonoBehaviour {
 		if (Input.GetKey(KeyCode.D))
 			rigidbody.AddForce (Vector3.right * (boulderTurnSpeed * Time.deltaTime), ForceMode.VelocityChange);
 #elif UNITY_ANDROID || UNITY_IPHONE && !UNITY_EDITOR
-		rigidbody.AddForce (Input.acceleration.x * (boulderTurnSpeed * Time.deltaTime), ForceMode.VelocityChange);
+		rigidbody.AddForce (new Vector3(Input.acceleration.x,0,0) * (boulderTurnSpeed * Time.deltaTime), ForceMode.VelocityChange);
 #endif
 	}
 	

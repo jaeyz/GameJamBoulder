@@ -2,11 +2,26 @@
 using System.Collections;
 
 public class Timer : MonoBehaviour {
-
+	
 	public float runTime = 0;
 	public int batteryBars = 6;
 	public float secondsCounter = 0;
-	private float currentTime = 0;
+	private float currentTime = 30;
+
+	private int currentScore = 0;
+
+	[SerializeField]
+	private UILabel txtTimer;
+
+	private static Timer timer;
+	public static Timer Instance {
+		get {
+			if (timer == null)
+				timer = FindObjectOfType(typeof(Timer)) as Timer;
+			return timer;
+		}
+	}
+
 
 	void Start() {
 		TimerPowerup.OnPowerUpCollided += AddTime;
@@ -18,11 +33,14 @@ public class Timer : MonoBehaviour {
 
 	void Update () {
 
+		currentScore = Mathf.RoundToInt (runTime * 100);
+
 		runTime += Time.deltaTime;
 
 		secondsCounter += Time.deltaTime;
 
 		currentTime += Time.deltaTime;
+		txtTimer.text = string.Format("Score: {0}", currentScore);
 
 		// Game Time
 		if (currentTime >= 8) {
@@ -42,6 +60,10 @@ public class Timer : MonoBehaviour {
 
 	void AddTime() {
 		batteryBars = Mathf.Clamp (++batteryBars, 0, 6);
+	}
+
+	public void AddBonusScore(int bonus) {
+		currentScore += bonus;
 	}
 
 }
