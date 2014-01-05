@@ -10,6 +10,7 @@ public class HazardPowerup : MonoBehaviour {
 				for(int x = 0; x < (childCount /2); x++ ) {
 					BoulderBehaviour.Instance.DecreaseBoulderSize();
 					Destroy(col.transform.GetChild(x).gameObject);
+					Destroy(gameObject);
 				}
 			}
 		}

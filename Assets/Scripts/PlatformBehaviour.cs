@@ -66,6 +66,14 @@ public class PlatformBehaviour : MonoBehaviour {
 			GameObject g = (GameObject) Instantiate(Resources.Load("TimerPowerup"));
 			g.transform.position = new Vector3(posX, 2f, posZ);
 		}
+
+		if (Random.value < 0.25f) {
+			float posX = Random.Range(transform.renderer.bounds.min.x + 1, transform.renderer.bounds.max.x - 1);
+			float posZ = Random.Range(transform.renderer.bounds.min.z + 1, transform.renderer.bounds.max.z - 1);
+			
+			GameObject g = (GameObject) Instantiate(Resources.Load("Hazard"));
+			g.transform.position = new Vector3(posX, 2f, posZ);
+		}
 	}
 	
 	void SpawnObstacles() {
