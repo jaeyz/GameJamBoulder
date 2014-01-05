@@ -53,7 +53,16 @@ public class Timer : MonoBehaviour {
 			secondsCounter = 0;
 			batteryBars--;
 		} else if (secondsCounter >= 5 && batteryBars == 0) {
+			int highScore = PlayerPrefs.GetInt("Score");
+
 			PlatformBehaviour.Instance.isShuttingDown = true;
+			ScoreHolder.Score = currentScore;
+
+			if (currentScore > highScore)
+				PlayerPrefs.SetInt("Score", currentScore);
+
+			PlayerPrefs.Save();
+
 			GameStatusManager.Instance.GameOver();
 		}
 	}

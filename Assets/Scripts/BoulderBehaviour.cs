@@ -25,15 +25,15 @@ public class BoulderBehaviour : MonoBehaviour {
 	}
 
 	public void AddBoulderSize() {
-		if (transform.localScale.x < 3f)
-			transform.localScale += new Vector3 (0.2f, 0.2f, 0.2f);
+		if (transform.localScale.x < 5f)
+			transform.localScale += new Vector3 (0.5f, 0.5f, 0.5f);
 		                            
-		boulderSpeed = Mathf.Clamp(boulderSpeed + 0.5f,
-		                           5f, 10f);
+		boulderSpeed = Mathf.Clamp(boulderSpeed + 1f,
+		                           5f, 15f);
 	}
 
 	public void DecreaseBoulderSize() {
-		if (transform.localScale.x > 1.5f)
+		if (transform.localScale.x >= 2.2f)
 			transform.localScale -= new Vector3 (0.2f, 0.2f, 0.2f);
 	}
 
@@ -54,8 +54,9 @@ public class BoulderBehaviour : MonoBehaviour {
 	}
 	
 	void FixedUpdate () {
-		rigidbody.AddForce (Vector3.forward * 5f);
-	
+		rigidbody.AddForce (Vector3.forward * 5f, ForceMode.Force);
+		rigidbody.AddTorque (Vector3.right * 5f, ForceMode.Force);
+
 #if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBPLAYER
 		if (Input.GetKey(KeyCode.A))
 			rigidbody.AddForce (Vector3.left * (boulderTurnSpeed * Time.deltaTime), ForceMode.VelocityChange);

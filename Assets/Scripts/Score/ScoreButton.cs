@@ -6,8 +6,12 @@ public class ScoreButton : MonoBehaviour {
 	[SerializeField]
 	private GameObject buttonMainMenu;
 
+	[SerializeField]
+	private UILabel scoreLabel;
+
 	// Use this for initialization
 	void Start () {
+		scoreLabel.text = PlayerPrefs.GetInt("Score").ToString();
 		UIEventListener.Get (buttonMainMenu).onClick += ReturnToMainMenu;
 	}
 

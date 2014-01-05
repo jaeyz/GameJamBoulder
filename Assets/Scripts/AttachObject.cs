@@ -31,10 +31,14 @@ public class AttachObject : MonoBehaviour {
 			collider.isTrigger = false;
 		}
 		if (OnCollided != null) {
-			Debug.Log(string.Format("[OnCollided] {0}", gameObject));
 			OnCollided (gameObject);
 		}
 		Timer.Instance.AddBonusScore(bonus);
+	}
+
+	void OnCollisionEnter(Collision col) {
+		Debug.Log("asdasdasd");
+		transform.localScale -= new Vector3 (0.5f, 0.5f, 0.5f);
 	}
 
 }

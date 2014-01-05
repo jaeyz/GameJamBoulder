@@ -13,4 +13,8 @@ public class TimerPowerup : MonoBehaviour {
 		}
 	}
 
+	void OnBecameInvisible() {
+		Destroy (transform.root.gameObject);
+	}
+
 }
