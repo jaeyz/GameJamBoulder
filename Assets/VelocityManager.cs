@@ -15,6 +15,9 @@ public class VelocityManager : MonoBehaviour {
 	{
 		speed = rigidbody.velocity.z * 2.237f;
 		if (speed <= 0 && begin) {
+			int highScore = PlayerPrefs.GetInt("Score");
+			if (Timer.Instance.CurrentScore > highScore)
+				PlayerPrefs.SetInt("Score", Timer.Instance.CurrentScore);
 			ScoreHolder.Score = Timer.Instance.CurrentScore;
 			GameStatusManager.Instance.GameOver ();
 		}

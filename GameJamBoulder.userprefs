@@ -1,10 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Timer.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MainMenu\ButtonStart.cs">
     <Files>
       <File FileName="Assets\VelocityManager.cs" Line="18" Column="52" />
-      <File FileName="Assets\Scripts\Score\ScoreButton.cs" Line="14" Column="34" />
-      <File FileName="Assets\Scripts\MainMenu\ButtonStart.cs" Line="9" Column="26" />
+      <File FileName="Assets\Scripts\Score\ScoreButton.cs" Line="14" Column="39" />
+      <File FileName="Assets\Scripts\MainMenu\ButtonStart.cs" Line="24" Column="36" />
       <File FileName="Assets\Scripts\Timer.cs" Line="75" Column="22" />
     </Files>
   </MonoDevelop.Ide.Workbench>

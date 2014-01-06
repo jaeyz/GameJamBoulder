@@ -11,7 +11,7 @@ public class ScoreButton : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		scoreLabel.text = ScoreHolder.Score.ToString();
+		scoreLabel.text = "You Scored:\n" + ScoreHolder.Score.ToString();
 		UIEventListener.Get (buttonMainMenu).onClick += ReturnToMainMenu;
 	}
 
