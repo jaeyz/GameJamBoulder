@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Timer : MonoBehaviour {
 	
@@ -12,6 +13,8 @@ public class Timer : MonoBehaviour {
 
 	[SerializeField]
 	private UILabel txtTimer;
+	[SerializeField]
+	private List<GameObject> batteryBarsObjects;
 
 	private static Timer timer;
 	public static Timer Instance {
@@ -73,6 +76,12 @@ public class Timer : MonoBehaviour {
 
 	public void AddBonusScore(int bonus) {
 		currentScore += bonus;
+	}
+
+	public int CurrentScore {
+		get {
+			return currentScore;
+		}
 	}
 
 }

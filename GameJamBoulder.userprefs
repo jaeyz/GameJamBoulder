@@ -1,10 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Powerups\HazardPowerup.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Timer.cs">
     <Files>
-      <File FileName="Assets\Scripts\Powerups\HazardPowerup.cs" Line="13" Column="26" />
-      <File FileName="Assets\Scripts\BoulderBehaviour.cs" Line="37" Column="52" />
-      <File FileName="Assets\Scripts\PlatformBehaviour.cs" Line="70" Column="26" />
+      <File FileName="Assets\VelocityManager.cs" Line="18" Column="52" />
+      <File FileName="Assets\Scripts\Score\ScoreButton.cs" Line="14" Column="34" />
+      <File FileName="Assets\Scripts\Timer.cs" Line="14" Column="18" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -11,12 +11,13 @@ public class ScoreButton : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		scoreLabel.text = PlayerPrefs.GetInt("Score").ToString();
+		scoreLabel.text = ScoreHolder.Score.ToString();
 		UIEventListener.Get (buttonMainMenu).onClick += ReturnToMainMenu;
 	}
 
 	void ReturnToMainMenu(GameObject g) {
 		UIEventListener.Get (buttonMainMenu).onClick -= ReturnToMainMenu;
+		ScoreHolder.Score = 0;
 		Application.LoadLevel("MainMenu");
 	}
 }
