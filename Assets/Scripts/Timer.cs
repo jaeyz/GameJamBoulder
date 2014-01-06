@@ -55,6 +55,7 @@ public class Timer : MonoBehaviour {
 		if (secondsCounter >= 5 && batteryBars > 0) {
 			secondsCounter = 0;
 			batteryBars--;
+			UpdateBatteries();
 		} else if (secondsCounter >= 5 && batteryBars == 0) {
 			int highScore = PlayerPrefs.GetInt("Score");
 
@@ -71,7 +72,9 @@ public class Timer : MonoBehaviour {
 	}
 
 	void AddTime() {
+		secondsCounter = 0;
 		batteryBars = Mathf.Clamp (++batteryBars, 0, 6);
+		UpdateBatteries ();
 	}
 
 	public void AddBonusScore(int bonus) {
@@ -82,6 +85,17 @@ public class Timer : MonoBehaviour {
 		get {
 			return currentScore;
 		}
+	}
+
+	private void UpdateBatteries() {
+		for (int x = 0; x < batteryBarsObjects.Count; x++) {
+			if (x < batteryBars) {
+				batteryBarsObjects[x].SetActive(true);
+			} else {
+				batteryBarsObjects[x].SetActive(false);
+			}
+		}
+
 	}
 
 }
