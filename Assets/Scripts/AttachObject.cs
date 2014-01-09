@@ -37,8 +37,9 @@ public class AttachObject : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision col) {
-		Debug.Log("asdasdasd");
-		transform.localScale -= new Vector3 (0.5f, 0.5f, 0.5f);
+		//transform.localScale -= new Vector3 (0.5f, 0.5f, 0.5f);
+		if (!rigidbody.isKinematic)
+			rigidbody.isKinematic = true;
 	}
 
 }

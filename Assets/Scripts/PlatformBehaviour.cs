@@ -103,7 +103,7 @@ public class PlatformBehaviour : MonoBehaviour {
 		string obstacleName = "";
 		switch (code) {
 		case 0:
-			obstacleName = "BlockStripe";
+			obstacleName = "Cube";
 			break;
 		case 1:
 			obstacleName = "";

@@ -1,11 +1,15 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MainMenu\ButtonStart.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\WayPointHuman.cs">
     <Files>
-      <File FileName="Assets\VelocityManager.cs" Line="18" Column="52" />
-      <File FileName="Assets\Scripts\Score\ScoreButton.cs" Line="14" Column="39" />
-      <File FileName="Assets\Scripts\MainMenu\ButtonStart.cs" Line="24" Column="36" />
-      <File FileName="Assets\Scripts\Timer.cs" Line="75" Column="22" />
+      <File FileName="Assets\Scripts\WayPointHuman.cs" Line="13" Column="13" />
+      <File FileName="Assets\Scripts\PlatformBehaviour.cs" Line="1" Column="1" />
+      <File FileName="Assets\VelocityManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Score\ScoreButton.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\MainMenu\ButtonStart.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Timer.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\AttachObject.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\WayPointHuman.cs" Line="57" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
