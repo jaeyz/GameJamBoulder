@@ -13,6 +13,8 @@ public class PlatformBehaviour : MonoBehaviour {
 
 	private List<AttachObject> attachObjects = new List<AttachObject>();
 
+	private System.Random rand = new System.Random();
+
 	public static PlatformBehaviour Instance {
 		get {
 			if (platformBehaviour == null)
@@ -43,7 +45,7 @@ public class PlatformBehaviour : MonoBehaviour {
 	void RepositionObstacles() {
 		if (cubes.Count < 1) {
 			for(int x = cubes.Count; x < 1; x++) {
-				int randomCode = Random.Range(0,1);
+				float randomCode = Random.value;
 				GameObject g = (GameObject) Instantiate(Resources.Load(GetObstacle(randomCode)));
 				cubes.Add(g);
 				AttachObject a = g.GetComponent<AttachObject>();
@@ -81,7 +83,7 @@ public class PlatformBehaviour : MonoBehaviour {
 		for (int x = 0; x < 1; x++) {
 			float posX = Random.Range(transform.renderer.bounds.min.x, transform.renderer.bounds.max.x);
 			float posY = Random.Range(transform.renderer.bounds.min.z, transform.renderer.bounds.max.z);
-			int randomCode = Random.Range(0,1);
+			float randomCode = Random.value;
 			GameObject g = (GameObject) Instantiate(Resources.Load(GetObstacle(randomCode)));
 			AttachObject a = g.GetComponent<AttachObject>();
 			a.OnCollided += RemoveObstacleFromList;
@@ -99,16 +101,20 @@ public class PlatformBehaviour : MonoBehaviour {
 		RepositionObstacles ();
 	}
 
-	string GetObstacle(int code) {
+	string GetObstacle(float code) {
 		string obstacleName = "";
-		switch (code) {
-		case 0:
-			obstacleName = "Cube";
-			break;
-		case 1:
-			obstacleName = "";
-			break;
-		}
+//		switch (code) {
+//		case 0:
+//			obstacleName = "BlockStripe";
+//			break;
+//		case 1:
+//			obstacleName = "Human";
+//			break;
+//		}
+		if (code > 0.5f) 
+			obstacleName = "BlockStripe";
+		else
+			obstacleName = "Human";
 		return obstacleName;
 	}
 	
