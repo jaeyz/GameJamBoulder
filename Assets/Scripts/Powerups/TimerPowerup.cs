@@ -9,6 +9,7 @@ public class TimerPowerup : MonoBehaviour {
 		if (col.tag == "Boulder") {
 			if (OnPowerUpCollided != null)
 				OnPowerUpCollided();
+			AudioManager.Instance.PlaySound(AudioManager.BATTERY);
 			Destroy(gameObject);
 		}
 	}

@@ -20,6 +20,9 @@ public class HazardPowerup : MonoBehaviour {
 					Destroy(gameObject);
 				}
 			}
+
+			AudioManager.Instance.PlaySound(AudioManager.EXPLOSION);
+			Timer.Instance.SubtractBonusScore(400);
 		}
 	}
 

@@ -1,8 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MonoSingleton.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MainMenu\ButtonStart.cs">
     <Files>
-      <File FileName="Assets\Scripts\MonoSingleton.cs" Line="57" Column="2" />
+      <File FileName="Assets\Scripts\MainMenu\ButtonStart.cs" Line="12" Column="7" />
+      <File FileName="Assets\Scripts\AudioManager.cs" Line="84" Column="16" />
+      <File FileName="Assets\Scripts\Title.cs" Line="10" Column="22" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

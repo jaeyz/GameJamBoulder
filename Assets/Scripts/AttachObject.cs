@@ -17,29 +17,66 @@ public class AttachObject : MonoBehaviour {
 
 	void OnTriggerEnter(Collider col) {
 		int bonus = 0;
+
+		AudioManager.Instance.PlaySound (GetObstacleSound (tag));
+
+		collider.enabled = false;
+
 		if (col.tag == "Boulder") {
 			transform.parent = col.transform;
-			collider.isTrigger = false;
-			//FixedJoint f = gameObject.AddComponent<FixedJoint>();
-			//f.connectedBody = col.rigidbody;
 			bonus = 20;
-			//rigidbody.constraints = RigidbodyConstraints.FreezeAll;
 		}
-		else if (col.tag == "Obs") {
+		else if (col.tag == "Obs" || col.tag == "Fence" || col.tag == "Human") {
 			bonus = 20;
 			transform.parent = col.transform;
-			collider.isTrigger = false;
-		}
+		} 
+
 		if (OnCollided != null) {
 			OnCollided (gameObject);
 		}
 		Timer.Instance.AddBonusScore(bonus);
 	}
 
-	void OnCollisionEnter(Collision col) {
-		//transform.localScale -= new Vector3 (0.5f, 0.5f, 0.5f);
-		if (!rigidbody.isKinematic)
-			rigidbody.isKinematic = true;
+	string GetRandomHumanVoice(int ran) {
+		string audioname = "";
+		switch (ran) {
+		case 0 :
+			audioname = AudioManager.HUMAN;
+			break;
+		case 1 :
+			audioname = AudioManager.HUMAN2;
+			break;
+		case 2: 
+			audioname = AudioManager.HUMAN3;
+			break;
+		case 3: 
+			audioname = AudioManager.HUMAN4;
+			break;
+		case 4: 
+			audioname = AudioManager.HUMAN5;
+			break;
+		case 5: 
+			audioname = AudioManager.HUMAN6;
+			break;
+		case 6: 
+			audioname = AudioManager.HUMAN7;
+			break;
+		}
+		return audioname;
 	}
 
+	string GetObstacleSound(string t) {
+		string aname = "";
+
+		switch (t) {
+		case "Fence":
+			aname = AudioManager.FENCE;
+			break;
+		case "Human":
+			int r = Random.Range(0,6);
+			aname = GetRandomHumanVoice(r);
+			break;
+		}
+		return aname;
+	}
 }

@@ -81,6 +81,10 @@ public class Timer : MonoBehaviour {
 		currentScore += bonus;
 	}
 
+	public void SubtractBonusScore(int bonus) {
+		currentScore -= bonus;
+	}
+
 	public int CurrentScore {
 		get {
 			return currentScore;

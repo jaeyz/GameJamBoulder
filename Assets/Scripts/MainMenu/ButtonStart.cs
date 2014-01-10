@@ -8,10 +8,11 @@ public class ButtonStart : MonoBehaviour {
 	[SerializeField]
 	private GameObject btnHighScore;
 
-	// Use this for initialization
 	void Start () {
 		UIEventListener.Get (btnStart).onClick += SwitchScene;
 		UIEventListener.Get (btnHighScore).onClick += GoHighScore;
+		if (!AudioManager.Instance.isMusicPlaying (AudioManager.MAIN_MENU))
+			AudioManager.Instance.PlayMusic (AudioManager.MAIN_MENU);
 	}
 
 	void SwitchScene(GameObject g) {

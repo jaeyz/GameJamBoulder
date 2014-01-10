@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class WayPointHuman : MonoBehaviour {
 
+	public System.Action<GameObject> OnCollided;
+
 	public static WayPointHuman Instance { get; private set; }
 
 	[SerializeField]
@@ -46,10 +48,44 @@ public class WayPointHuman : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider col) {
-		if (col.tag == "Boulder") {
-		
+		if (col.tag == "Boulder" || col.tag == "Human" || col.tag == "Fence" ) {
+			int r = Random.Range(0,6);
+			AudioManager.Instance.PlaySound(GetRandomHumanVoice(r));
+			transform.parent = boulder.transform;
+			if (OnCollided != null) {
+				OnCollided(gameObject);
+			}
 		}
 	}
+
+	string GetRandomHumanVoice(int ran) {
+		string audioname = "";
+		switch (ran) {
+		case 0 :
+			audioname = AudioManager.HUMAN;
+			break;
+		case 1 :
+			audioname = AudioManager.HUMAN2;
+			break;
+		case 2: 
+			audioname = AudioManager.HUMAN3;
+			break;
+		case 3: 
+			audioname = AudioManager.HUMAN4;
+			break;
+		case 4: 
+			audioname = AudioManager.HUMAN5;
+			break;
+		case 5: 
+			audioname = AudioManager.HUMAN6;
+			break;
+		case 6: 
+			audioname = AudioManager.HUMAN7;
+			break;
+		}
+		return audioname;
+	}
+
 
 	IEnumerator TurnAround(Quaternion defaultRotation, Quaternion newRotation, float time) {
 		float i = 0.0f;
@@ -83,4 +119,6 @@ public class WayPointHuman : MonoBehaviour {
 			yield return null; 
 		}
 	}
+
+
 }

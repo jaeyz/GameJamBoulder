@@ -24,6 +24,10 @@ public class BoulderBehaviour : MonoBehaviour {
 		}
 	}
 
+	void Start() {
+		AudioManager.Instance.PlayLoopingSound (AudioManager.BOULDER_ROLL);
+	}
+
 	public void AddBoulderSize() {
 		if (transform.localScale.x < 5f)
 			transform.localScale += new Vector3 (0.5f, 0.5f, 0.5f);

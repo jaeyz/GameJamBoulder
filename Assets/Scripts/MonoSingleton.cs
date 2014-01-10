@@ -16,7 +16,7 @@ public abstract class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T
 				{
 					Debug.LogWarning("No instance of " + typeof(T).ToString() + ", a temporary one is created.");
 					m_Instance = new GameObject("Temp Instance of " + typeof(T).ToString(), typeof(T)).GetComponent<T>();
-					
+					DontDestroyOnLoad(m_Instance);
 					// Problem during the creation, this should not happen
 					if( m_Instance == null )
 					{
