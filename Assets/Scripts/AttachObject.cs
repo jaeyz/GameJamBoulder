@@ -26,7 +26,7 @@ public class AttachObject : MonoBehaviour {
 			transform.parent = col.transform;
 			bonus = 20;
 		}
-		else if (col.tag == "Obs" || col.tag == "Fence" || col.tag == "Human") {
+		else if (col.tag == "Obs" || col.tag == "Fence" || col.tag == "Human" || col.tag == "Radio") {
 			bonus = 20;
 			transform.parent = col.transform;
 		} 
@@ -75,6 +75,9 @@ public class AttachObject : MonoBehaviour {
 		case "Human":
 			int r = Random.Range(0,6);
 			aname = GetRandomHumanVoice(r);
+			break;
+		case "Radio":
+			aname = AudioManager.RADIO;
 			break;
 		}
 		return aname;

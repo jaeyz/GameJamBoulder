@@ -16,6 +16,7 @@ public class HighScoreReturn : MonoBehaviour {
 
 	void ReturnMe(GameObject g) {
 		UIEventListener.Get (btnOk).onClick -= ReturnMe;
+		AudioManager.Instance.PlaySound (AudioManager.BACK);
 		Application.LoadLevel("MainMenu");
 	}
 

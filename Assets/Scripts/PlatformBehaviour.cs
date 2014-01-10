@@ -12,6 +12,7 @@ public class PlatformBehaviour : MonoBehaviour {
 	public static PlatformBehaviour platformBehaviour;
 
 	private List<AttachObject> attachObjects = new List<AttachObject>();
+	private List<WayPointHuman> waypoints = new List<WayPointHuman>();
 
 	private System.Random rand = new System.Random();
 
@@ -36,6 +37,9 @@ public class PlatformBehaviour : MonoBehaviour {
 		foreach (AttachObject a in attachObjects) {
 			a.OnCollided -= RemoveObstacleFromList;
 		}
+		foreach (WayPointHuman a in waypoints) {
+			a.OnCollided -= RemoveObstacleFromList;
+		}
 	}
 
 	void RemoveObstacleFromList(GameObject g) {
@@ -45,12 +49,19 @@ public class PlatformBehaviour : MonoBehaviour {
 	void RepositionObstacles() {
 		if (cubes.Count < 1) {
 			for(int x = cubes.Count; x < 1; x++) {
-				float randomCode = Random.value;
+				int randomCode = Random.Range(0,2);
 				GameObject g = (GameObject) Instantiate(Resources.Load(GetObstacle(randomCode)));
 				cubes.Add(g);
 				AttachObject a = g.GetComponent<AttachObject>();
-				a.OnCollided += RemoveObstacleFromList;
-				attachObjects.Add(a);
+				if (a != null) {
+					a.OnCollided += RemoveObstacleFromList;
+					attachObjects.Add(a);
+				}
+				WayPointHuman w = g.GetComponent<WayPointHuman>();
+				if (w != null) {
+					w.OnCollided += RemoveObstacleFromList;
+					waypoints.Add(w);
+				}
 			}
 		}
 		
@@ -83,11 +94,18 @@ public class PlatformBehaviour : MonoBehaviour {
 		for (int x = 0; x < 1; x++) {
 			float posX = Random.Range(transform.renderer.bounds.min.x, transform.renderer.bounds.max.x);
 			float posY = Random.Range(transform.renderer.bounds.min.z, transform.renderer.bounds.max.z);
-			float randomCode = Random.value;
+			int randomCode =2;
 			GameObject g = (GameObject) Instantiate(Resources.Load(GetObstacle(randomCode)));
 			AttachObject a = g.GetComponent<AttachObject>();
-			a.OnCollided += RemoveObstacleFromList;
-			attachObjects.Add(a);
+			if (a != null) {
+				a.OnCollided += RemoveObstacleFromList;
+				attachObjects.Add(a);
+			}
+			WayPointHuman w = g.GetComponent<WayPointHuman>();
+			if (w != null) {
+				w.OnCollided += RemoveObstacleFromList;
+				waypoints.Add(w);
+			}
 			cubes.Add(g);
 			g.transform.position = new Vector3(posX,1.2f,posY);
 		}
@@ -101,20 +119,23 @@ public class PlatformBehaviour : MonoBehaviour {
 		RepositionObstacles ();
 	}
 
-	string GetObstacle(float code) {
+	string GetObstacle(int code) {
 		string obstacleName = "";
-//		switch (code) {
-//		case 0:
-//			obstacleName = "BlockStripe";
-//			break;
-//		case 1:
-//			obstacleName = "Human";
-//			break;
-//		}
-		if (code > 0.5f) 
+		switch (code) {
+		case 0:
 			obstacleName = "BlockStripe";
-		else
+			break;
+		case 1:
 			obstacleName = "Human";
+			break;
+		case 2:
+			obstacleName = "Radio";
+			break;
+		}
+//		if (code > 0.5f) 
+//			obstacleName = "BlockStripe";
+//		else
+//			obstacleName = "Human";
 		return obstacleName;
 	}
 	

@@ -4,7 +4,8 @@ using System.Collections.Generic;
 
 public class AudioManager : MonoBehaviour {
 
-	public const string MAIN_MENU = "Summer";
+	public const string MAIN_MENU = "Kalimba";
+	public const string GAME_BGM = "";
 
 	public const string GAME_OVER = "";
 	public const string START = "YaMan1Start";
@@ -17,10 +18,13 @@ public class AudioManager : MonoBehaviour {
 	public const string HUMAN7 = "ManImpact7";
 	public const string BOULDER_ROLL = "RollingBoulder";
 	public const string BATTERY = "Battery";
-	public const string RADIO = "RadioImpact";
+	public const string RADIO = "Radio";
 	public const string FENCE = "FenceImpact";
 	public const string EXPLOSION = "RockExplosion";
 	public const string COUGH_INTRO = "CoughIntro";
+	public const string HIGHSCORE = "";
+	public const string RETRY = "";
+	public const string BACK = "";
 
 	
 	private static AudioManager instance = null;
@@ -67,7 +71,8 @@ public class AudioManager : MonoBehaviour {
 
 	public void InitializeAudios() {
 		//BGM
-		audios.Add (MAIN_MENU, (AudioClip) Resources.Load ("SoundAssets/Summer"));
+		audios.Add (MAIN_MENU, (AudioClip) Resources.Load ("SoundAssets/" + MAIN_MENU));
+		audios.Add (GAME_BGM, (AudioClip) Resources.Load ("SoundAssets/" + GAME_BGM));
 		//SFX
 		audios.Add (GAME_OVER, (AudioClip) Resources.Load ("SoundAssets/" + GAME_OVER));
 		audios.Add (HUMAN, (AudioClip) Resources.Load ("SoundAssets/" + HUMAN));
@@ -82,6 +87,10 @@ public class AudioManager : MonoBehaviour {
 		audios.Add (FENCE, (AudioClip) Resources.Load ("SoundAssets/" + FENCE));
 		audios.Add (EXPLOSION, (AudioClip) Resources.Load ("SoundAssets/" + EXPLOSION));
 		audios.Add (COUGH_INTRO, (AudioClip) Resources.Load ("SoundAssets/" + COUGH_INTRO));
+		audios.Add (RADIO, (AudioClip) Resources.Load ("SoundAssets/" + RADIO));
+		audios.Add (HIGHSCORE, (AudioClip) Resources.Load ("SoundAssets/" + HIGHSCORE));
+		audios.Add (RETRY, (AudioClip) Resources.Load ("SoundAssets/" + RETRY));
+		audios.Add (BACK, (AudioClip) Resources.Load ("SoundAssets/" + BACK));
 	}
 
 	public bool isMusicPlaying(string audioName) {
@@ -104,7 +113,10 @@ public class AudioManager : MonoBehaviour {
 		AudioClip aClip;
 		if (audios.TryGetValue (audioName, out aClip)) {
 			if (aClip != null) {
+				Debug.Log("Playing: " + audioName);
 				soundNonLooping.PlayOneShot(aClip);
+			} else {
+				Debug.Log("NULL");
 			}
 		}
 	}

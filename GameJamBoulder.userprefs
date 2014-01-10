@@ -1,10 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MainMenu\ButtonStart.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\BoulderBehaviour.cs">
     <Files>
-      <File FileName="Assets\Scripts\MainMenu\ButtonStart.cs" Line="12" Column="7" />
-      <File FileName="Assets\Scripts\AudioManager.cs" Line="84" Column="16" />
-      <File FileName="Assets\Scripts\Title.cs" Line="10" Column="22" />
+      <File FileName="Assets\Scripts\Powerups\TimerPowerup.cs" Line="12" Column="58" />
+      <File FileName="Assets\Scripts\AttachObject.cs" Line="6" Column="36" />
+      <File FileName="Assets\Scripts\AudioManager.cs" Line="109" Column="4" />
+      <File FileName="Assets\Scripts\WayPointHuman.cs" Line="47" Column="38" />
+      <File FileName="Assets\Scripts\PlatformBehaviour.cs" Line="62" Column="44" />
+      <File FileName="Assets\Scripts\BoulderBehaviour.cs" Line="36" Column="36" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

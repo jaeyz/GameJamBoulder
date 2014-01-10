@@ -17,9 +17,13 @@ public class WayPointHuman : MonoBehaviour {
 	private Quaternion respawnRotation;
 	private Quaternion destinationRotation;
 
-	private bool isLurking = true;
+	public bool isLurking = true;
+
+	private bool isCollided = false;
 
 	private GameObject boulder;
+
+	private Vector3 lockLocalPos;
 
 	IEnumerator Start () {
 		boulder = GameObject.FindGameObjectWithTag ("Boulder");
@@ -38,8 +42,10 @@ public class WayPointHuman : MonoBehaviour {
 	}
 
 	void Update() {
-		if ((transform.position.z - boulder.transform.position.z) <= 15f) {
+		if ((transform.position.z - boulder.transform.position.z) <= 15f && isLurking) {
 			isLurking = false;
+		} else if (!isLurking && isCollided) {
+			transform.localPosition = lockLocalPos;
 		}
 	}
 
@@ -48,10 +54,13 @@ public class WayPointHuman : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider col) {
-		if (col.tag == "Boulder" || col.tag == "Human" || col.tag == "Fence" ) {
+		if (col.tag == "Boulder" || col.tag == "Human" || col.tag == "Fence" || col.tag == "Radio" ) {
+			collider.enabled = false;
+			isCollided = true;
 			int r = Random.Range(0,6);
 			AudioManager.Instance.PlaySound(GetRandomHumanVoice(r));
 			transform.parent = boulder.transform;
+			lockLocalPos = transform.localPosition;
 			if (OnCollided != null) {
 				OnCollided(gameObject);
 			}

@@ -17,11 +17,13 @@ public class ButtonStart : MonoBehaviour {
 
 	void SwitchScene(GameObject g) {
 		UIEventListener.Get (btnStart).onClick -= SwitchScene;
+		AudioManager.Instance.PlaySound (AudioManager.START);
 		Application.LoadLevel ("Game");
 	}
 
 	void GoHighScore(GameObject g) {
 		UIEventListener.Get (btnHighScore).onClick -= GoHighScore;
+		AudioManager.Instance.PlaySound (AudioManager.HIGHSCORE);
 		Application.LoadLevel ("HighScore");
 	}
 	

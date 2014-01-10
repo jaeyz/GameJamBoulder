@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class BoulderBehaviour : MonoBehaviour {
 	
 	public float boulderSpeed = 5f;
-	private float boulderTurnSpeed = 30f;
+	private float boulderTurnSpeed = 50f;
 	private static BoulderBehaviour boulderBehaviour;
 	
 	public static BoulderBehaviour Instance {
@@ -26,6 +26,7 @@ public class BoulderBehaviour : MonoBehaviour {
 
 	void Start() {
 		AudioManager.Instance.PlayLoopingSound (AudioManager.BOULDER_ROLL);
+		AudioManager.Instance.PlayMusic (AudioManager.GAME_BGM);
 	}
 
 	public void AddBoulderSize() {
@@ -33,7 +34,7 @@ public class BoulderBehaviour : MonoBehaviour {
 			transform.localScale += new Vector3 (0.5f, 0.5f, 0.5f);
 		                            
 		boulderSpeed = Mathf.Clamp(boulderSpeed + 1f,
-		                           5f, 15f);
+		                           5f, 25f);
 	}
 
 	public void DecreaseBoulderSize() {
