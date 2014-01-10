@@ -5,9 +5,9 @@ using System.Collections.Generic;
 public class AudioManager : MonoBehaviour {
 
 	public const string MAIN_MENU = "Kalimba";
-	public const string GAME_BGM = "";
+	public const string GAME_BGM = "PlaceHolderForGameBGM";
 
-	public const string GAME_OVER = "";
+	public const string GAME_OVER = "PlaceHolderForGameOver";
 	public const string START = "YaMan1Start";
 	public const string HUMAN = "ManImpact1";
 	public const string HUMAN2 = "ManImpact2";
@@ -22,9 +22,9 @@ public class AudioManager : MonoBehaviour {
 	public const string FENCE = "FenceImpact";
 	public const string EXPLOSION = "RockExplosion";
 	public const string COUGH_INTRO = "CoughIntro";
-	public const string HIGHSCORE = "";
-	public const string RETRY = "";
-	public const string BACK = "";
+	public const string HIGHSCORE = "HighScorePlaceHolder";
+	public const string RETRY = "RetryPlaceHolder";
+	public const string BACK = "BackPlaceHolder";
 
 	
 	private static AudioManager instance = null;
@@ -125,7 +125,8 @@ public class AudioManager : MonoBehaviour {
 		AudioClip aClip;
 		if (audios.TryGetValue (audioName, out aClip)) {
 			if (aClip != null) {
-				soundLoopingSource.PlayOneShot(aClip);
+				soundLoopingSource.clip = aClip;
+				soundLoopingSource.Play();
 			}
 		}
 	}
