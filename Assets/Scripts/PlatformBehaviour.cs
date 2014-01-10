@@ -94,7 +94,7 @@ public class PlatformBehaviour : MonoBehaviour {
 		for (int x = 0; x < 1; x++) {
 			float posX = Random.Range(transform.renderer.bounds.min.x, transform.renderer.bounds.max.x);
 			float posY = Random.Range(transform.renderer.bounds.min.z, transform.renderer.bounds.max.z);
-			int randomCode =2;
+			int randomCode = Random.Range(0,2);
 			GameObject g = (GameObject) Instantiate(Resources.Load(GetObstacle(randomCode)));
 			AttachObject a = g.GetComponent<AttachObject>();
 			if (a != null) {
