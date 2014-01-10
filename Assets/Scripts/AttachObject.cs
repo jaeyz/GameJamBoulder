@@ -28,6 +28,8 @@ public class AttachObject : MonoBehaviour {
 		}
 		else if (col.tag == "Obs" || col.tag == "Fence" || col.tag == "Human" || col.tag == "Radio") {
 			bonus = 20;
+			if (col.GetComponent<MeshCollider>() != null)
+				col.GetComponent<MeshCollider>().convex = true;
 			transform.parent = col.transform;
 		} 
 
