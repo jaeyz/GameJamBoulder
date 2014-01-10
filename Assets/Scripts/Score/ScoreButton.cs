@@ -15,7 +15,7 @@ public class ScoreButton : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		AudioManager.Instance.PlayMusic (AudioManager.GAME_OVER);
-		scoreLabel.text = "You Scored:\n" + ScoreHolder.Score.ToString();
+		scoreLabel.text = "Score: " + ScoreHolder.Score.ToString();
 		UIEventListener.Get (buttonMainMenu).onClick += ReturnToMainMenu;
 		UIEventListener.Get (retryButton).onClick += Retry;
 	}

@@ -37,7 +37,7 @@ public class BoulderBehaviour : MonoBehaviour {
 		    
 		if (!isBoosting) {
 			boulderSpeed = Mathf.Clamp(boulderSpeed + 1f,
-		                           5f, 15f);
+		                           5f, 7f);
 		}
 	}
 

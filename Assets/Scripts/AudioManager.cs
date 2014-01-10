@@ -48,6 +48,7 @@ public class AudioManager : MonoBehaviour {
 				GameObject music = new GameObject("Music");
 				music.transform.parent = instance.transform;
 				instance.bgMusicSource =  music.AddComponent<AudioSource>();
+				instance.bgMusicSource.loop = true;
 			}
 			if (instance.soundNonLooping == null) {
 				GameObject music = new GameObject("Sound");
@@ -114,7 +115,6 @@ public class AudioManager : MonoBehaviour {
 			PlayMusic(c);
 			yield return new WaitForSeconds(bgMusicSource.clip.length);
 		}
-		StopCoroutine("PlayMusicAccordingly");
 	}
 
 	public void PlaySound (string audioName) {
