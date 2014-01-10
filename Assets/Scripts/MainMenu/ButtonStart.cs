@@ -11,8 +11,7 @@ public class ButtonStart : MonoBehaviour {
 	void Start () {
 		UIEventListener.Get (btnStart).onClick += SwitchScene;
 		UIEventListener.Get (btnHighScore).onClick += GoHighScore;
-		if (!AudioManager.Instance.isMusicPlaying (AudioManager.MAIN_MENU))
-			AudioManager.Instance.PlayMusic (AudioManager.MAIN_MENU);
+		StartCoroutine(AudioManager.Instance.PlayMusicAccordingly (AudioManager.COUGH_INTRO, AudioManager.MAIN_MENU));
 	}
 
 	void SwitchScene(GameObject g) {

@@ -15,7 +15,7 @@ public class HazardPowerup : MonoBehaviour {
 			if (childCount > 0) {
 				for(int x = 0; x < (childCount /2); x++ ) {
 					BoulderBehaviour.Instance.DecreaseBoulderSize();
-
+				
 					Destroy(col.transform.GetChild(x).gameObject);
 					Destroy(gameObject);
 				}
@@ -23,6 +23,8 @@ public class HazardPowerup : MonoBehaviour {
 
 			AudioManager.Instance.PlaySound(AudioManager.EXPLOSION);
 			Timer.Instance.SubtractBonusScore(400);
+
+			Timer.Instance.DeductPlayerHealth();
 		}
 	}
 

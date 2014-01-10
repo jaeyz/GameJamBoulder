@@ -4,10 +4,10 @@ using System.Collections.Generic;
 
 public class AudioManager : MonoBehaviour {
 
-	public const string MAIN_MENU = "Kalimba";
-	public const string GAME_BGM = "PlaceHolderForGameBGM";
+	public const string MAIN_MENU = "BGMMainMenu";
+	public const string GAME_BGM = "BGMInGame";
 
-	public const string GAME_OVER = "PlaceHolderForGameOver";
+	public const string GAME_OVER = "BGMGameOver";
 	public const string START = "YaMan1Start";
 	public const string HUMAN = "ManImpact1";
 	public const string HUMAN2 = "ManImpact2";
@@ -107,6 +107,14 @@ public class AudioManager : MonoBehaviour {
 			bgMusicSource.clip = aClip;
 			bgMusicSource.Play();
 		}
+	}
+
+	public IEnumerator PlayMusicAccordingly(params string[] clips) {
+		foreach (string c in clips) {
+			PlayMusic(c);
+			yield return new WaitForSeconds(bgMusicSource.clip.length);
+		}
+		StopCoroutine("PlayMusicAccordingly");
 	}
 
 	public void PlaySound (string audioName) {

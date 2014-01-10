@@ -15,6 +15,10 @@ public class Timer : MonoBehaviour {
 	private UILabel txtTimer;
 	[SerializeField]
 	private List<GameObject> batteryBarsObjects;
+	[SerializeField]
+	private UILabel healthTxt;
+
+	private int playerHealth = 3;
 
 	private static Timer timer;
 	public static Timer Instance {
@@ -28,6 +32,7 @@ public class Timer : MonoBehaviour {
 
 	void Start() {
 		TimerPowerup.OnPowerUpCollided += AddTime;
+		healthTxt.text = string.Format("Life: {0}x", playerHealth);
 	}
 
 	void OnDestroy() {
@@ -83,6 +88,25 @@ public class Timer : MonoBehaviour {
 
 	public void SubtractBonusScore(int bonus) {
 		currentScore -= bonus;
+	}
+
+	public void DeductPlayerHealth() {
+		if (playerHealth > 1) {
+			playerHealth--;
+			healthTxt.text = string.Format("Life: {0}x", playerHealth);
+		} else {
+			int highScore = PlayerPrefs.GetInt("Score");
+			
+			PlatformBehaviour.Instance.isShuttingDown = true;
+			ScoreHolder.Score = currentScore;
+			
+			if (currentScore > highScore)
+				PlayerPrefs.SetInt("Score", currentScore);
+			
+			PlayerPrefs.Save();
+
+			GameStatusManager.Instance.GameOver();
+		}
 	}
 
 	public int CurrentScore {
